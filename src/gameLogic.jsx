@@ -19,9 +19,21 @@ function Scorebox({score}){
     )
   }
 
+function Playagain({setFinished, setScore,winner}){
+    return(
+        <div>
+            <h1>{winner} wins!</h1>
+            <button onClick={() => setScore([0, 0])}>Play again?</button>
+            <button onClick={() => setFinished(true)}>Stop playing</button>
+        </div>
 
-export default function GameBox() {
+    )
+}
+
+
+export default function GameBox({setFinished}) {
     const [score, setScore] = useState([0, 0]);
+
     function gameRound(playerSelection){
         const[playerScore, computerScore] = score
         const computerSelection = getComputerChoice();
@@ -68,14 +80,20 @@ export default function GameBox() {
         }
     }
 
-    return (
-      <>
-        <div className='gameContainer'>
-          <img src={rock} alt='rock' id='rock' onClick={() => gameRound('rock')}></img>
-          <img src={paper} alt='paper' id='paper' onClick={() => gameRound('paper')}></img>
-          <img src={scissors} alt='scissors' id='scissors' onClick={() => gameRound('scissors')}></img>
-        </div>
-        < Scorebox score={score}/>
-      </>
-    );
-  }
+    if(score[0] === 3 || score[1] === 3){
+        let winner = (score[0] > score[1]) ? 'Player' : 'Computer';
+        return <Playagain winner={winner} setScore={setScore} setFinished={setFinished}/>
+    }
+    else {
+        return(
+            <>
+                <div className='gameContainer'>
+                <img src={rock} alt='rock' id='rock' onClick={() => gameRound('rock')}></img>
+                <img src={paper} alt='paper' id='paper' onClick={() => gameRound('paper')}></img>
+                <img src={scissors} alt='scissors' id='scissors' onClick={() => gameRound('scissors')}></img>
+                </div>
+                < Scorebox score={score}/>
+            </>
+        );
+    }
+}
