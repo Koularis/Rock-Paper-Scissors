@@ -25,10 +25,14 @@ a:hover {
 }
 
 body {
-  margin-top: 7rem;
+  margin-top: 2rem;
   display: flex;
   min-width: 320px;
   min-height: 100vh;
+}
+
+.title{
+  margin-bottom: 1em;
 }
 
 .gameContainer{
@@ -46,29 +50,61 @@ body {
   transform: scale(1.2);
 }
 
+.score{
+  margin-top: 1.5em;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.rules{
+  font-size: 2em;
+  margin-bottom: 3em;
+}
+
 h1 {
   font-size: 4rem;
   line-height: 1.1;
 }
 
-button {
+input[type=button]{
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  border: 0.1em solid transparent;
+  padding: 0.2em 1em;
+  font-size: 3em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--dgray);
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
+input[type=button]:hover{
+  background-color: rgb(123, 196, 15);
+  transform: scale(1.1);
+  /* box-shadow: #323232; */
 }
-button:focus,
-button:focus-visible {
+input[type=button]:focus,
+input[type=button]:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+.playState > input[type=button]{
+  background-color: var(--beige);
+  color: var(--dgray);
+}
+
+
+#play:hover{
+  color: rgb(123, 196, 15);;
+}
+
+#stop{
+  margin-top: 0.5em;
+}
+
+#stop:hover{
+  color: rgb(227, 14, 14);
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {

@@ -13,7 +13,7 @@ function getComputerChoice(){
 function Scorebox({score}){
     const[playerScore, computerScore] = score
     return(
-      <div>
+      <div className='score'>
         <p>{playerScore} - {computerScore}</p>
       </div>
     )
@@ -21,10 +21,10 @@ function Scorebox({score}){
 
 function Playagain({setFinished, setScore,winner}){
     return(
-        <div>
+        <div className='playState'>
             <h1>{winner} wins!</h1>
-            <button onClick={() => setScore([0, 0])}>Play again?</button>
-            <button onClick={() => setFinished(true)}>Stop playing</button>
+            <input className='stateButtons' id='play' type='button' value={'Play again'} onClick={() => setScore([0, 0])}></input><br/>
+            <input className='stateButtons' id='stop' type='button' value='Stop playing' onClick={() => setFinished(true)}></input>
         </div>
 
     )

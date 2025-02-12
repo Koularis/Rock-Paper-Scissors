@@ -24,7 +24,8 @@ function App() {
   
   return (
     <>
-      <h1>Rock Paper Scissors</h1>
+      <h1 className='title'>Rock Paper Scissors</h1>
+      <h2 className='rules'>Best out of 5 !</h2>
       {(!hasStarted) ?
       <Welcome setStatus={setStatus}/> :
       ((!finished) ?
